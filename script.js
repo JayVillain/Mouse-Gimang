@@ -3,12 +3,13 @@
 // Smooth Scrolling untuk navigasi
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
+        e.preventDefault(); // Mencegah perilaku default jump
 
         const targetId = this.getAttribute('href');
         const targetElement = document.querySelector(targetId);
 
         if (targetElement) {
+            // Gulir ke elemen target dengan efek smooth
             targetElement.scrollIntoView({
                 behavior: 'smooth'
             });
@@ -16,22 +17,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Efek sederhana saat scroll untuk navbar (mengubah background dan shadow)
+// Efek sederhana saat scroll untuk navbar (opsional, sudah dihandle sebagian oleh Tailwind transition)
 const header = document.querySelector('header');
 
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        header.classList.add('bg-opacity-90', 'shadow-lg');
+    if (window.scrollY > 50) { // Jika sudah scroll lebih dari 50px
+        header.classList.add('bg-opacity-90', 'shadow-lg'); // Menambah opacity dan bayangan
     } else {
-        header.classList.remove('bg-opacity-90', 'shadow-lg');
+        header.classList.remove('bg-opacity-90', 'shadow-lg'); // Menghapus opacity dan bayangan
     }
 });
 
-console.log("NOVA X-Pro Gaming Mouse Landing Page siap dengan animasi!");
-
-// Jika Anda ingin efek paralaks yang lebih canggih, Anda akan menambahkannya di sini.
-// Contoh (membutuhkan lebih banyak kode dan bisa menggunakan library seperti Rellax.js):
-/*
-import Rellax from 'rellax';
-var rellax = new Rellax('.rellax'); // Akan menargetkan elemen dengan class 'rellax'
-*/
+console.log("Landing page mouse gaming dengan Tailwind siap!");
