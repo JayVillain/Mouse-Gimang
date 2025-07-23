@@ -1,16 +1,17 @@
 /* css/style.css */
 
-/* --- Variabel CSS Global (Opsional tapi Direkomendasikan) --- */
+/* --- Variabel CSS Global (Diperbarui untuk Dark & Neon) --- */
 :root {
-    --dark-bg: #0F172A;
-    --dark-card: #1E293B;
-    --primary-blue: #3B82F6;
-    --text-white: #FFFFFF;
-    --text-gray-300: #D1D5DB;
-    --text-gray-400: #9CA3AF;
-    --text-gray-500: #6B7280;
-    --text-red: #EF4444;
-    --text-yellow: #FACC15;
+    --darkest-bg: #0A0A0C;           /* Hitam sangat gelap */
+    --darker-card: #181A20;          /* Biru/abu-abu gelap untuk card/section */
+    --neon-blue: #00FFFF;            /* Biru neon cerah (Cyan) */
+    --primary-highlight: #00E0FF;    /* Sedikit variasi neon blue */
+    --accent-glow: rgba(0, 224, 255, 0.4); /* Glow untuk neon blue */
+    --text-light: #E0E0E0;           /* Teks terang agar kontras */
+    --text-muted: #A0A0A0;           /* Teks sedikit redup */
+    --text-dim: #707070;             /* Teks redup */
+    --warning-red: #FF6B6B;          /* Merah untuk penawaran terbatas */
+    --star-yellow: #FFD700;          /* Kuning untuk rating bintang */
 
     --font-poppins: 'Poppins', sans-serif;
 }
@@ -24,69 +25,73 @@
 
 body {
     font-family: var(--font-poppins);
-    background-color: var(--dark-bg);
-    color: var(--text-white);
+    background-color: var(--darkest-bg);
+    color: var(--text-light);
     line-height: 1.6;
-    overflow-x: hidden; /* Mencegah scroll horizontal dari animasi */
-    scroll-behavior: smooth; /* Smooth scroll untuk anchor links */
+    overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 24px; /* px-6 di Tailwind */
+    padding: 0 24px;
 }
 
 h1, h2, h3 {
-    font-weight: 800; /* font-extrabold di Tailwind */
-    color: var(--primary-blue);
+    font-weight: 800;
+    color: var(--neon-blue); /* Judul utama pakai neon blue */
+    text-shadow: 0 0 8px var(--accent-glow); /* Efek glow neon */
     margin-bottom: 1rem;
 }
 
 h1 {
-    font-size: 3.5rem; /* text-5xl di Tailwind */
+    font-size: 3.5rem;
     line-height: 1.2;
     margin-bottom: 1rem;
 }
-@media (min-width: 768px) { /* md:text-7xl di Tailwind */
+@media (min-width: 768px) {
     h1 {
-        font-size: 4.5rem; /* text-7xl di Tailwind */
+        font-size: 4.5rem;
     }
 }
 
 h2 {
-    font-size: 2.25rem; /* text-4xl di Tailwind */
-    font-weight: 700; /* font-bold di Tailwind */
+    font-size: 2.25rem;
+    font-weight: 700;
+    text-shadow: 0 0 5px var(--accent-glow); /* Glow lebih halus */
 }
 
 h3 {
-    font-size: 1.5rem; /* text-2xl di Tailwind */
-    font-weight: 600; /* font-semibold di Tailwind */
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-highlight); /* H3 pakai warna neon sedikit beda */
+    text-shadow: none; /* Hapus glow di H3 agar tidak terlalu ramai */
 }
 
 p {
-    font-size: 1.125rem; /* text-lg di Tailwind */
+    font-size: 1.125rem;
     margin-bottom: 1rem;
-    color: var(--text-gray-300);
+    color: var(--text-muted); /* Teks paragraf lebih redup */
 }
-@media (min-width: 768px) { /* md:text-xl di Tailwind */
+@media (min-width: 768px) {
     p {
-        font-size: 1.25rem; /* text-xl di Tailwind */
+        font-size: 1.25rem;
     }
 }
 
 a {
-    color: var(--text-white);
+    color: var(--text-light);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 a:hover {
-    color: var(--primary-blue);
+    color: var(--neon-blue); /* Link hover juga neon */
 }
 
 /* --- Header / Navbar --- */
 .main-header {
-    padding: 1rem 3rem; /* py-4 px-6 md:px-12 di Tailwind */
+    padding: 1rem 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -95,40 +100,43 @@ a:hover {
     left: 0;
     width: 100%;
     z-index: 50;
-    background-color: rgba(15, 23, 42, 0.9); /* bg-dark-bg bg-opacity-90 */
-    backdrop-filter: blur(5px); /* backdrop-blur-sm */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
-    transition: all 0.3s ease; /* transition-all duration-300 */
+    background-color: rgba(10, 10, 12, 0.95); /* bg-darkest-bg dengan opacity */
+    backdrop-filter: blur(8px); /* Blur lebih kuat */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Shadow lebih gelap dan jelas */
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.1); /* Garis bawah neon tipis */
 }
 
-.main-header.scrolled { /* Class yang akan ditambahkan oleh JS */
-    background-color: rgba(15, 23, 42, 0.95); /* Sedikit lebih gelap saat di-scroll */
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Bayangan lebih kuat */
+.main-header.scrolled {
+    background-color: rgba(10, 10, 12, 0.98); /* Lebih gelap lagi saat di-scroll */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Shadow lebih kuat */
 }
 
 .logo {
-    font-size: 1.5rem; /* text-2xl */
-    font-weight: 700; /* font-bold */
-    color: var(--primary-blue);
-    transition: color 0.2s ease; /* transition-colors duration-200 */
+    font-size: 1.5rem;
+    font-weight: 800; /* Lebih tebal */
+    color: var(--neon-blue);
+    text-shadow: 0 0 5px var(--accent-glow);
+    transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 .logo:hover {
-    color: #4299e1; /* blue-400 */
+    color: var(--primary-highlight);
+    text-shadow: 0 0 10px var(--neon-blue);
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 1.5rem; /* space-x-6 */
+    gap: 1.5rem;
 }
 .nav-links a {
-    font-size: 1.125rem; /* text-lg */
-    font-weight: 600; /* font-semibold */
-    color: var(--text-white);
-    transition: color 0.2s ease; /* transition-colors duration-200 */
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-light);
+    transition: color 0.2s ease;
 }
 .nav-links a:hover {
-    color: #4299e1; /* blue-400 */
+    color: var(--neon-blue);
 }
 
 /* --- Hero Section --- */
@@ -141,125 +149,120 @@ a:hover {
     background-position: center;
     text-align: center;
     position: relative;
-    padding-top: 5rem; /* pt-20 */
-    overflow: hidden; /* Memastikan overlay tidak keluar */
+    padding-top: 5rem;
+    overflow: hidden;
+    /* Efek paralaks dasar (jika gambar di-host secara lokal, pastikan ada) */
+    background-attachment: fixed;
 }
 
 .hero-overlay {
     position: absolute;
-    inset: 0; /* top:0, right:0, bottom:0, left:0 */
-    background-color: rgba(0, 0, 0, 0.7); /* bg-black opacity-70 */
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Overlay lebih gelap */
 }
 
 .hero-content {
     position: relative;
     z-index: 10;
-    padding: 2rem; /* p-8 */
-    max-width: 960px; /* max-w-4xl */
+    padding: 2rem;
+    max-width: 960px;
 }
 
 .hero-content h1 span {
-    color: var(--text-white);
+    color: var(--text-light); /* Nama mouse di hero tetap terang */
 }
 
 .cta-button {
     display: inline-block;
-    background-color: var(--primary-blue); /* bg-primary-blue */
-    color: var(--text-white);
-    font-weight: 700; /* font-bold */
-    padding: 1rem 2.5rem; /* py-4 px-10 */
-    border-radius: 9999px; /* rounded-full */
-    font-size: 1.125rem; /* text-lg */
-    transition: all 0.3s ease; /* transition-all duration-300 */
-    transform: scale(1); /* transform */
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
+    background: linear-gradient(45deg, var(--neon-blue) 0%, var(--primary-highlight) 100%); /* Gradient neon */
+    color: var(--darkest-bg); /* Teks tombol gelap agar kontras dengan neon */
+    font-weight: 700;
+    padding: 1rem 2.5rem;
+    border-radius: 9999px;
+    font-size: 1.125rem;
+    transition: all 0.3s ease;
+    transform: scale(1);
+    box-shadow: 0 0 15px var(--neon-blue); /* Glow tombol */
+    border: 1px solid var(--neon-blue);
 }
 .cta-button:hover {
-    background-color: #2563EB; /* blue-700 */
-    transform: scale(1.05); /* hover:scale-105 */
+    background: linear-gradient(45deg, var(--primary-highlight) 0%, var(--neon-blue) 100%);
+    transform: scale(1.08); /* Scale sedikit lebih besar */
+    box-shadow: 0 0 25px var(--neon-blue), 0 0 40px var(--primary-highlight); /* Glow lebih intens */
 }
 
 /* --- Section Styling Umum --- */
 .features-section, .reviews-section {
-    padding: 5rem 0; /* py-20 */
-    background-color: var(--dark-card); /* bg-dark-card */
+    padding: 5rem 0;
+    background-color: var(--darker-card); /* bg-darker-card */
 }
 
 .gallery-section {
-    padding: 5rem 0; /* py-20 */
-    background-color: var(--dark-bg); /* bg-dark-bg */
-}
-
-.buy-section {
-    padding: 5rem 0; /* py-20 */
-    background-color: var(--primary-blue); /* bg-primary-blue */
-    text-align: center;
-}
-
-.section-title {
-    font-size: 2.25rem; /* text-4xl */
-    font-weight: 800; /* font-extrabold */
-    margin-bottom: 3rem; /* mb-12 */
-    color: var(--primary-blue);
+    padding: 5rem 0;
+    background-color: var(--darkest-bg); /* bg-darkest-bg */
 }
 
 /* --- Features Grid --- */
 .features-grid {
     display: grid;
-    grid-template-columns: 1fr; /* grid-cols-1 */
-    gap: 2.5rem; /* gap-10 */
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
 }
-@media (min-width: 768px) { /* md:grid-cols-2 */
+@media (min-width: 768px) {
     .features-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
-@media (min-width: 1024px) { /* lg:grid-cols-3 */
+@media (min-width: 1024px) {
     .features-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
 .feature-card {
-    background-color: var(--dark-bg); /* bg-gray-800 */
-    padding: 2rem; /* p-8 */
-    border-radius: 0.5rem; /* rounded-lg */
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
-    transform: scale(1); /* transform */
-    transition: transform 0.3s ease; /* transition-transform duration-300 */
+    background-color: var(--darkest-bg); /* bg-darkest-bg untuk card */
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Shadow gelap */
+    transform: scale(1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 255, 255, 0.05); /* Border tipis neon */
 }
 .feature-card:hover {
-    transform: scale(1.05); /* hover:scale-105 */
+    transform: scale(1.05);
+    box-shadow: 0 0 20px var(--accent-glow), 0 5px 25px rgba(0, 0, 0, 0.4); /* Glow on hover */
 }
 
 .feature-icon {
-    margin: 0 auto 1.5rem; /* mx-auto mb-6 */
-    width: 6rem; /* w-24 */
-    height: 6rem; /* h-24 */
-    /* Filter untuk mengubah warna ikon dari hitam ke biru (sesuai filter-invert-blue di Tailwind) */
-    filter: invert(37%) sepia(90%) saturate(1600%) hue-rotate(190deg) brightness(90%) contrast(90%);
+    margin: 0 auto 1.5rem;
+    width: 6rem;
+    height: 6rem;
+    /* Pastikan path ikon benar atau ganti dengan ikon SVG yang bisa diwarnai langsung */
+    /* Filter untuk mengubah warna ikon */
+    filter: invert(50%) sepia(100%) saturate(2000%) hue-rotate(150deg) brightness(100%) contrast(100%); /* Efek neon blue untuk ikon */
 }
 
 .feature-card h3 {
-    color: #93C5FD; /* blue-300 */
+    color: var(--primary-highlight);
     margin-bottom: 1rem;
+    text-shadow: none; /* Hapus glow di H3 */
 }
 .feature-card p {
-    color: var(--text-gray-300);
+    color: var(--text-muted);
 }
 
 /* --- Gallery Grid --- */
 .gallery-grid {
     display: grid;
-    grid-template-columns: 1fr; /* grid-cols-1 */
-    gap: 2rem; /* gap-8 */
+    grid-template-columns: 1fr;
+    gap: 2rem;
 }
-@media (min-width: 768px) { /* md:grid-cols-2 */
+@media (min-width: 768px) {
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
-@media (min-width: 1024px) { /* lg:grid-cols-3 */
+@media (min-width: 1024px) {
     .gallery-grid {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -268,104 +271,119 @@ a:hover {
 .gallery-item {
     position: relative;
     overflow: hidden;
-    border-radius: 0.5rem; /* rounded-lg */
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
+    border-radius: 0.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 255, 255, 0.08); /* Border tipis neon */
 }
 .gallery-item img {
     width: 100%;
     height: auto;
     object-fit: cover;
-    transform: scale(1); /* transform scale-100 */
-    transition: transform 0.5s ease; /* transition-transform duration-500 */
+    transform: scale(1);
+    transition: transform 0.5s ease;
 }
 .gallery-item:hover img {
-    transform: scale(1.05); /* group-hover:scale-105 */
+    transform: scale(1.05);
 }
 
 .gallery-overlay {
     position: absolute;
-    inset: 0; /* top:0, right:0, bottom:0, left:0 */
-    background-color: rgba(0, 0, 0, 0.6); /* bg-black bg-opacity-60 */
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Overlay lebih gelap */
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: opacity 0.3s ease; /* transition-opacity duration-300 */
-    border-radius: 0.5rem; /* rounded-lg */
+    transition: opacity 0.3s ease;
+    border-radius: 0.5rem;
+    border: 2px solid var(--neon-blue); /* Border neon pada hover */
+    box-shadow: 0 0 15px var(--neon-blue); /* Glow pada hover */
 }
 .gallery-item:hover .gallery-overlay {
-    opacity: 1; /* group-hover:opacity-100 */
+    opacity: 1;
 }
 .gallery-overlay p {
-    color: var(--text-white);
-    font-size: 1.25rem; /* text-xl */
-    font-weight: 600; /* font-semibold */
-    margin-bottom: 0; /* Hapus margin default p */
+    color: var(--text-light);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0;
+    text-shadow: 0 0 8px var(--accent-glow); /* Glow pada teks overlay */
 }
 
 /* --- Reviews Grid --- */
 .reviews-grid {
     display: grid;
-    grid-template-columns: 1fr; /* grid-cols-1 */
-    gap: 2rem; /* gap-8 */
+    grid-template-columns: 1fr;
+    gap: 2rem;
 }
-@media (min-width: 768px) { /* md:grid-cols-2 */
+@media (min-width: 768px) {
     .reviews-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
-@media (min-width: 1024px) { /* lg:grid-cols-3 */
+@media (min-width: 1024px) {
     .reviews-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
 .review-card {
-    background-color: var(--dark-bg); /* bg-gray-800 */
-    padding: 2rem; /* p-8 */
-    border-radius: 0.5rem; /* rounded-lg */
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
+    background-color: var(--darkest-bg);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 255, 255, 0.05); /* Border tipis neon */
 }
 .star-rating {
-    color: var(--text-yellow);
-    font-size: 1.5rem; /* text-2xl */
+    color: var(--star-yellow);
+    font-size: 1.5rem;
     text-align: center;
     margin-bottom: 1rem;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.4); /* Glow kuning untuk bintang */
 }
 .review-text {
     font-style: italic;
     margin-bottom: 1rem;
-    color: var(--text-gray-300);
+    color: var(--text-muted);
 }
 .reviewer {
-    font-weight: 600; /* font-semibold */
-    color: var(--primary-blue);
-    margin-bottom: 0; /* Hapus margin default p */
+    font-weight: 600;
+    color: var(--primary-highlight); /* Nama reviewer juga neon */
+    margin-bottom: 0;
 }
 
 /* --- Buy Section --- */
+.buy-section {
+    padding: 5rem 0;
+    background-color: var(--darker-card); /* Warna buy section juga gelap */
+    text-align: center;
+    border-top: 2px solid var(--neon-blue); /* Garis neon di atas buy section */
+    box-shadow: 0 -5px 20px rgba(0, 255, 255, 0.1); /* Glow di atas section */
+}
+
 .buy-section h2 {
-    color: var(--text-white);
-    margin-bottom: 1.5rem; /* mb-6 */
+    color: var(--neon-blue);
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 8px var(--accent-glow);
 }
 .buy-tagline {
-    font-size: 1.25rem; /* text-xl */
-    margin-bottom: 2.5rem; /* mb-10 */
-    color: #BFDBFE; /* blue-100 */
+    font-size: 1.25rem;
+    margin-bottom: 2.5rem;
+    color: var(--text-light);
 }
 
 .buy-card-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; /* flex-col */
-    gap: 1.5rem; /* space-y-6 */
+    flex-direction: column;
+    gap: 1.5rem;
 }
-@media (min-width: 768px) { /* md:flex-row md:space-x-8 */
+@media (min-width: 768px) {
     .buy-card-wrapper {
         flex-direction: row;
         gap: 0;
-        margin-left: -1rem; /* Untuk meniru space-x */
+        margin-left: -1rem;
         margin-right: -1rem;
     }
     .buy-card-wrapper > * {
@@ -375,102 +393,108 @@ a:hover {
 }
 
 .buy-card {
-    background-color: var(--text-white); /* bg-white */
-    padding: 2rem; /* p-8 */
-    border-radius: 0.5rem; /* rounded-lg */
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* shadow-2xl */
-    color: #111827; /* gray-900 */
-    width: 100%; /* w-full */
-    max-width: 400px; /* Opsional: batasi lebar pada desktop */
+    background-color: var(--darkest-bg); /* Card pembelian juga gelap */
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* Shadow lebih kuat */
+    color: var(--text-light);
+    width: 100%;
+    max-width: 400px;
     text-align: center;
+    border: 2px solid var(--neon-blue); /* Border neon kuat */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-@media (min-width: 768px) { /* md:w-1/3 */
-    .buy-card {
-        width: 33.333333%; /* Mendekati 1/3 */
-    }
+.buy-card:hover {
+    transform: translateY(-5px); /* Sedikit naik saat hover */
+    box-shadow: 0 0 30px var(--neon-blue), 0 10px 35px rgba(0, 0, 0, 0.6); /* Glow dan shadow lebih kuat */
 }
 
 .price-label {
-    font-size: 1.125rem; /* text-lg */
-    font-weight: 600; /* font-semibold */
-    margin-bottom: 0.5rem; /* mb-2 */
-    color: inherit; /* agar warna mengikuti parent (gray-900) */
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
 }
 .price-main {
-    font-size: 3rem; /* text-5xl */
-    font-weight: 800; /* font-extrabold */
-    color: var(--primary-blue);
-    margin-bottom: 1rem; /* mb-4 */
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--neon-blue); /* Harga utama neon */
+    text-shadow: 0 0 10px var(--neon-blue);
+    margin-bottom: 1rem;
 }
 .price-strike {
-    font-size: 0.875rem; /* text-sm */
+    font-size: 0.875rem;
     text-decoration: line-through;
-    color: var(--text-gray-500);
-    margin-bottom: 1rem; /* mb-4 */
+    color: var(--text-dim);
+    margin-bottom: 1rem;
 }
 .limited-offer {
-    font-size: 0.875rem; /* text-sm */
-    font-weight: 600; /* font-semibold */
-    color: var(--text-red);
-    margin-bottom: 1.5rem; /* mb-6 */
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--warning-red); /* Merah untuk peringatan */
+    text-shadow: 0 0 3px rgba(255, 107, 107, 0.5);
+    margin-bottom: 1.5rem;
 }
 
 .buy-button {
     display: inline-block;
-    background-image: linear-gradient(to right, #3B82F6, #2563EB); /* from-blue-500 to-blue-700 */
-    color: var(--text-white);
-    font-weight: 700; /* font-bold */
-    padding: 1rem 2rem; /* py-4 px-8 */
-    border-radius: 9999px; /* rounded-full */
-    font-size: 1.25rem; /* text-xl */
-    transition: all 0.3s ease; /* transition-all duration-300 */
-    transform: scale(1); /* transform */
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
-    width: 100%; /* w-full */
+    background: linear-gradient(45deg, var(--neon-blue) 0%, var(--primary-highlight) 100%);
+    color: var(--darkest-bg);
+    font-weight: 700;
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
+    transform: scale(1);
+    box-shadow: 0 0 15px var(--neon-blue);
+    width: 100%;
+    border: 1px solid var(--neon-blue);
 }
 .buy-button:hover {
-    background-image: linear-gradient(to right, #2563EB, #1D4ED8); /* from-blue-700 to-blue-900 */
-    transform: scale(1.05); /* hover:scale-105 */
+    background: linear-gradient(45deg, var(--primary-highlight) 0%, var(--neon-blue) 100%);
+    transform: scale(1.08);
+    box-shadow: 0 0 25px var(--neon-blue), 0 0 40px var(--primary-highlight);
 }
 
 
 /* --- Footer --- */
 .main-footer {
-    background-color: var(--dark-bg); /* bg-dark-bg */
-    padding: 2.5rem 0; /* py-10 */
+    background-color: var(--darkest-bg);
+    padding: 2.5rem 0;
     text-align: center;
-    color: var(--text-gray-400);
+    color: var(--text-dim); /* Teks footer lebih redup */
+    border-top: 1px solid rgba(0, 255, 255, 0.05); /* Garis neon tipis di footer */
 }
 
 .footer-links {
     display: flex;
     justify-content: center;
-    gap: 1.5rem; /* space-x-6 */
-    margin-top: 1rem; /* mt-4 */
+    gap: 1.5rem;
+    margin-top: 1rem;
 }
 .footer-links a {
-    color: var(--text-gray-400);
-    transition: color 0.2s ease; /* transition-colors duration-200 */
+    color: var(--text-dim);
+    transition: color 0.2s ease;
 }
 .footer-links a:hover {
-    color: var(--primary-blue); /* blue-500 */
+    color: var(--neon-blue);
 }
 
-/* --- Animasi Kustom CSS (Opsional, AOS sudah menangani banyak) --- */
-/* Jika Anda ingin animasi murni CSS tanpa AOS, ini contohnya */
+/* --- Animasi Dasar (bisa ditambahkan di sini jika tidak pakai AOS atau ingin custom) --- */
+/* Contoh animasi CSS murni: */
 /*
-@keyframes fadeInSlideUp {
+@keyframes fadeInScale {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: scale(0.9);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: scale(1);
     }
 }
 
-.animated-element {
-    animation: fadeInSlideUp 1s ease-out forwards;
+.some-animated-element {
+    animation: fadeInScale 0.8s ease-out forwards;
 }
 */
