@@ -1,18 +1,29 @@
 /* css/style.css */
 
-/* --- Variabel CSS Global (Diperbarui untuk Dark & Neon) --- */
+/* --- Variabel CSS Global (Revisi Palet Warna & Efek) --- */
 :root {
-    --darkest-bg: #0A0A0C;           /* Hitam sangat gelap */
-    --darker-card: #181A20;          /* Biru/abu-abu gelap untuk card/section */
-    --neon-blue: #00FFFF;            /* Biru neon cerah (Cyan) */
-    --primary-highlight: #00E0FF;    /* Sedikit variasi neon blue */
-    --accent-glow: rgba(0, 224, 255, 0.4); /* Glow untuk neon blue */
-    --text-light: #E0E0E0;           /* Teks terang agar kontras */
-    --text-muted: #A0A0A0;           /* Teks sedikit redup */
-    --text-dim: #707070;             /* Teks redup */
-    --warning-red: #FF6B6B;          /* Merah untuk penawaran terbatas */
-    --star-yellow: #FFD700;          /* Kuning untuk rating bintang */
+    /* Background & Dasar */
+    --color-bg-darkest: #0D0D12;             /* Sangat gelap, hampir hitam */
+    --color-bg-card: #1A1C25;                /* Agak lebih terang dari bg-darkest, untuk kartu/section */
+    --color-bg-header: rgba(13, 13, 18, 0.95); /* Header dengan sedikit transparansi */
 
+    /* Warna Aksen Neon */
+    --color-neon-accent: #00E0FF;            /* Biru-Cyan cerah untuk neon */
+    --color-neon-glow-light: rgba(0, 224, 255, 0.2); /* Glow ringan untuk teks */
+    --color-neon-glow-medium: rgba(0, 224, 255, 0.4);/* Glow sedang untuk elemen */
+    --color-neon-glow-strong: rgba(0, 224, 255, 0.6);/* Glow kuat untuk hover/active */
+
+    /* Warna Teks */
+    --color-text-light: #E0E0E0;             /* Teks utama, mudah dibaca */
+    --color-text-muted: #A0A0A0;             /* Teks sekunder/deskripsi */
+    --color-text-dim: #707070;               /* Teks footer/legal */
+    --color-text-dark-on-neon: #111116;      /* Teks gelap untuk di atas elemen neon */
+
+    /* Warna Spesifik */
+    --color-warning-red: #FF6B6B;            /* Untuk penawaran/peringatan */
+    --color-star-yellow: #FFD700;            /* Untuk rating bintang */
+
+    /* Font Family */
     --font-poppins: 'Poppins', sans-serif;
 }
 
@@ -25,11 +36,11 @@
 
 body {
     font-family: var(--font-poppins);
-    background-color: var(--darkest-bg);
-    color: var(--text-light);
+    background-color: var(--color-bg-darkest);
+    color: var(--color-text-light);
     line-height: 1.6;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
+    overflow-x: hidden; /* Mencegah scroll horizontal dari animasi */
+    scroll-behavior: smooth; /* Smooth scroll untuk anchor links */
 }
 
 .container {
@@ -38,17 +49,14 @@ body {
     padding: 0 24px;
 }
 
-h1, h2, h3 {
-    font-weight: 800;
-    color: var(--neon-blue); /* Judul utama pakai neon blue */
-    text-shadow: 0 0 8px var(--accent-glow); /* Efek glow neon */
-    margin-bottom: 1rem;
-}
-
+/* Judul Utama */
 h1 {
     font-size: 3.5rem;
+    font-weight: 800;
     line-height: 1.2;
     margin-bottom: 1rem;
+    color: var(--color-neon-accent); /* Headline utama pakai neon */
+    text-shadow: 0 0 10px var(--color-neon-glow-medium); /* Efek glow yang lebih jelas */
 }
 @media (min-width: 768px) {
     h1 {
@@ -56,23 +64,28 @@ h1 {
     }
 }
 
+/* Judul Section */
 h2 {
     font-size: 2.25rem;
     font-weight: 700;
-    text-shadow: 0 0 5px var(--accent-glow); /* Glow lebih halus */
+    margin-bottom: 3rem; /* Menyesuaikan jarak bawah */
+    color: var(--color-neon-accent);
+    text-shadow: 0 0 8px var(--color-neon-glow-light); /* Glow lebih halus untuk h2 */
 }
 
+/* Judul Card/Sub-section */
 h3 {
     font-size: 1.5rem;
     font-weight: 600;
-    color: var(--primary-highlight); /* H3 pakai warna neon sedikit beda */
-    text-shadow: none; /* Hapus glow di H3 agar tidak terlalu ramai */
+    color: var(--color-text-light); /* H3 lebih ke terang, bukan neon langsung */
+    margin-bottom: 1rem;
+    text-shadow: none; /* Hapus glow di H3 */
 }
 
 p {
     font-size: 1.125rem;
     margin-bottom: 1rem;
-    color: var(--text-muted); /* Teks paragraf lebih redup */
+    color: var(--color-text-muted); /* Teks paragraf pakai abu-abu lebih redup */
 }
 @media (min-width: 768px) {
     p {
@@ -81,12 +94,12 @@ p {
 }
 
 a {
-    color: var(--text-light);
+    color: var(--color-text-light);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 a:hover {
-    color: var(--neon-blue); /* Link hover juga neon */
+    color: var(--color-neon-accent); /* Link hover jadi neon */
 }
 
 /* --- Header / Navbar --- */
@@ -100,28 +113,28 @@ a:hover {
     left: 0;
     width: 100%;
     z-index: 50;
-    background-color: rgba(10, 10, 12, 0.95); /* bg-darkest-bg dengan opacity */
-    backdrop-filter: blur(8px); /* Blur lebih kuat */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Shadow lebih gelap dan jelas */
+    background-color: var(--color-bg-header);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5); /* Shadow lebih gelap dan jelas */
     transition: all 0.3s ease;
-    border-bottom: 1px solid rgba(0, 255, 255, 0.1); /* Garis bawah neon tipis */
+    border-bottom: 1px solid rgba(0, 224, 255, 0.15); /* Garis bawah neon tipis */
 }
 
 .main-header.scrolled {
-    background-color: rgba(10, 10, 12, 0.98); /* Lebih gelap lagi saat di-scroll */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Shadow lebih kuat */
+    background-color: rgba(13, 13, 18, 0.98); /* Lebih gelap lagi saat di-scroll */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6); /* Shadow lebih kuat */
 }
 
 .logo {
     font-size: 1.5rem;
-    font-weight: 800; /* Lebih tebal */
-    color: var(--neon-blue);
-    text-shadow: 0 0 5px var(--accent-glow);
+    font-weight: 800;
+    color: var(--color-neon-accent);
+    text-shadow: 0 0 8px var(--color-neon-glow-light);
     transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 .logo:hover {
-    color: var(--primary-highlight);
-    text-shadow: 0 0 10px var(--neon-blue);
+    color: var(--color-neon-accent);
+    text-shadow: 0 0 15px var(--color-neon-glow-strong);
 }
 
 .nav-links {
@@ -132,11 +145,11 @@ a:hover {
 .nav-links a {
     font-size: 1.125rem;
     font-weight: 600;
-    color: var(--text-light);
+    color: var(--color-text-light);
     transition: color 0.2s ease;
 }
 .nav-links a:hover {
-    color: var(--neon-blue);
+    color: var(--color-neon-accent);
 }
 
 /* --- Hero Section --- */
@@ -151,14 +164,13 @@ a:hover {
     position: relative;
     padding-top: 5rem;
     overflow: hidden;
-    /* Efek paralaks dasar (jika gambar di-host secara lokal, pastikan ada) */
-    background-attachment: fixed;
+    background-attachment: fixed; /* Efek paralaks dasar */
 }
 
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.8); /* Overlay lebih gelap */
+    background-color: rgba(0, 0, 0, 0.85); /* Overlay lebih gelap untuk kontras maksimal */
 }
 
 .hero-content {
@@ -169,37 +181,46 @@ a:hover {
 }
 
 .hero-content h1 span {
-    color: var(--text-light); /* Nama mouse di hero tetap terang */
+    color: var(--color-text-light); /* Nama mouse di hero tetap terang */
+    text-shadow: none; /* Hapus glow di sini agar fokus ke headline utama */
 }
 
 .cta-button {
     display: inline-block;
-    background: linear-gradient(45deg, var(--neon-blue) 0%, var(--primary-highlight) 100%); /* Gradient neon */
-    color: var(--darkest-bg); /* Teks tombol gelap agar kontras dengan neon */
+    background: linear-gradient(45deg, var(--color-neon-accent) 0%, #0099FF 100%); /* Gradient ke biru lebih dalam */
+    color: var(--color-text-dark-on-neon); /* Teks tombol gelap agar kontras */
     font-weight: 700;
     padding: 1rem 2.5rem;
     border-radius: 9999px;
     font-size: 1.125rem;
     transition: all 0.3s ease;
     transform: scale(1);
-    box-shadow: 0 0 15px var(--neon-blue); /* Glow tombol */
-    border: 1px solid var(--neon-blue);
+    box-shadow: 0 0 15px var(--color-neon-glow-medium); /* Glow tombol */
+    border: 1px solid var(--color-neon-accent);
 }
 .cta-button:hover {
-    background: linear-gradient(45deg, var(--primary-highlight) 0%, var(--neon-blue) 100%);
-    transform: scale(1.08); /* Scale sedikit lebih besar */
-    box-shadow: 0 0 25px var(--neon-blue), 0 0 40px var(--primary-highlight); /* Glow lebih intens */
+    background: linear-gradient(45deg, #0099FF 0%, var(--color-neon-accent) 100%); /* Reverse gradient on hover */
+    transform: scale(1.08);
+    box-shadow: 0 0 25px var(--color-neon-glow-strong), 0 0 40px var(--color-neon-glow-strong); /* Glow lebih intens */
 }
 
 /* --- Section Styling Umum --- */
 .features-section, .reviews-section {
     padding: 5rem 0;
-    background-color: var(--darker-card); /* bg-darker-card */
+    background-color: var(--color-bg-card); /* Background untuk card/section */
 }
 
 .gallery-section {
     padding: 5rem 0;
-    background-color: var(--darkest-bg); /* bg-darkest-bg */
+    background-color: var(--color-bg-darkest); /* Background gelap untuk galeri */
+}
+
+.buy-section {
+    padding: 5rem 0;
+    background-color: var(--color-bg-card); /* Background untuk buy section */
+    text-align: center;
+    border-top: 2px solid var(--color-neon-accent); /* Garis neon di atas buy section */
+    box-shadow: 0 -5px 20px var(--color-neon-glow-light); /* Glow di atas section */
 }
 
 /* --- Features Grid --- */
@@ -220,35 +241,35 @@ a:hover {
 }
 
 .feature-card {
-    background-color: var(--darkest-bg); /* bg-darkest-bg untuk card */
+    background-color: var(--color-bg-darkest); /* Background card fitur sangat gelap */
     padding: 2rem;
     border-radius: 0.5rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Shadow gelap */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
     transform: scale(1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid rgba(0, 255, 255, 0.05); /* Border tipis neon */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 1px solid rgba(0, 224, 255, 0.08); /* Border tipis neon */
 }
 .feature-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 20px var(--accent-glow), 0 5px 25px rgba(0, 0, 0, 0.4); /* Glow on hover */
+    box-shadow: 0 0 20px var(--color-neon-glow-medium), 0 5px 25px rgba(0, 0, 0, 0.5); /* Glow on hover */
+    border-color: var(--color-neon-accent); /* Border menjadi neon kuat saat hover */
 }
 
 .feature-icon {
     margin: 0 auto 1.5rem;
     width: 6rem;
     height: 6rem;
-    /* Pastikan path ikon benar atau ganti dengan ikon SVG yang bisa diwarnai langsung */
-    /* Filter untuk mengubah warna ikon */
-    filter: invert(50%) sepia(100%) saturate(2000%) hue-rotate(150deg) brightness(100%) contrast(100%); /* Efek neon blue untuk ikon */
+    /* Filter untuk mengubah warna ikon dari hitam ke biru neon */
+    filter: invert(50%) sepia(100%) saturate(2000%) hue-rotate(150deg) brightness(100%) contrast(100%);
 }
 
 .feature-card h3 {
-    color: var(--primary-highlight);
+    color: var(--color-text-light); /* H3 di card tetap terang */
     margin-bottom: 1rem;
-    text-shadow: none; /* Hapus glow di H3 */
+    text-shadow: none;
 }
 .feature-card p {
-    color: var(--text-muted);
+    color: var(--color-text-muted);
 }
 
 /* --- Gallery Grid --- */
@@ -272,8 +293,8 @@ a:hover {
     position: relative;
     overflow: hidden;
     border-radius: 0.5rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(0, 255, 255, 0.08); /* Border tipis neon */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(0, 224, 255, 0.08); /* Border tipis neon */
 }
 .gallery-item img {
     width: 100%;
@@ -289,25 +310,27 @@ a:hover {
 .gallery-overlay {
     position: absolute;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.7); /* Overlay lebih gelap */
+    background-color: rgba(0, 0, 0, 0.75); /* Overlay lebih gelap */
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     border-radius: 0.5rem;
-    border: 2px solid var(--neon-blue); /* Border neon pada hover */
-    box-shadow: 0 0 15px var(--neon-blue); /* Glow pada hover */
+    border: 2px solid transparent; /* Awalnya transparan */
+    box-shadow: 0 0 0 transparent;
 }
 .gallery-item:hover .gallery-overlay {
     opacity: 1;
+    border-color: var(--color-neon-accent); /* Border neon pada hover */
+    box-shadow: 0 0 20px var(--color-neon-glow-strong); /* Glow pada hover */
 }
 .gallery-overlay p {
-    color: var(--text-light);
+    color: var(--color-text-light);
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 0;
-    text-shadow: 0 0 8px var(--accent-glow); /* Glow pada teks overlay */
+    text-shadow: 0 0 10px var(--color-neon-glow-medium);
 }
 
 /* --- Reviews Grid --- */
@@ -328,14 +351,18 @@ a:hover {
 }
 
 .review-card {
-    background-color: var(--darkest-bg);
+    background-color: var(--color-bg-darkest);
     padding: 2rem;
     border-radius: 0.5rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(0, 255, 255, 0.05); /* Border tipis neon */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(0, 224, 255, 0.08); /* Border tipis neon */
 }
+.review-card:hover {
+    box-shadow: 0 0 20px var(--color-neon-glow-medium), 0 5px 25px rgba(0, 0, 0, 0.5); /* Glow on hover */
+}
+
 .star-rating {
-    color: var(--star-yellow);
+    color: var(--color-star-yellow);
     font-size: 1.5rem;
     text-align: center;
     margin-bottom: 1rem;
@@ -344,32 +371,24 @@ a:hover {
 .review-text {
     font-style: italic;
     margin-bottom: 1rem;
-    color: var(--text-muted);
+    color: var(--color-text-muted);
 }
 .reviewer {
     font-weight: 600;
-    color: var(--primary-highlight); /* Nama reviewer juga neon */
+    color: var(--color-neon-accent); /* Nama reviewer juga neon */
     margin-bottom: 0;
 }
 
 /* --- Buy Section --- */
-.buy-section {
-    padding: 5rem 0;
-    background-color: var(--darker-card); /* Warna buy section juga gelap */
-    text-align: center;
-    border-top: 2px solid var(--neon-blue); /* Garis neon di atas buy section */
-    box-shadow: 0 -5px 20px rgba(0, 255, 255, 0.1); /* Glow di atas section */
-}
-
 .buy-section h2 {
-    color: var(--neon-blue);
+    color: var(--color-neon-accent);
     margin-bottom: 1.5rem;
-    text-shadow: 0 0 8px var(--accent-glow);
+    text-shadow: 0 0 10px var(--color-neon-glow-medium);
 }
 .buy-tagline {
     font-size: 1.25rem;
     margin-bottom: 2.5rem;
-    color: var(--text-light);
+    color: var(--color-text-light);
 }
 
 .buy-card-wrapper {
@@ -393,77 +412,77 @@ a:hover {
 }
 
 .buy-card {
-    background-color: var(--darkest-bg); /* Card pembelian juga gelap */
+    background-color: var(--color-bg-darkest); /* Card pembelian sangat gelap */
     padding: 2rem;
     border-radius: 0.5rem;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* Shadow lebih kuat */
-    color: var(--text-light);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    color: var(--color-text-light);
     width: 100%;
     max-width: 400px;
     text-align: center;
-    border: 2px solid var(--neon-blue); /* Border neon kuat */
+    border: 2px solid var(--color-neon-accent); /* Border neon kuat */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .buy-card:hover {
-    transform: translateY(-5px); /* Sedikit naik saat hover */
-    box-shadow: 0 0 30px var(--neon-blue), 0 10px 35px rgba(0, 0, 0, 0.6); /* Glow dan shadow lebih kuat */
+    transform: translateY(-8px); /* Sedikit naik saat hover */
+    box-shadow: 0 0 30px var(--color-neon-glow-strong), 0 15px 40px rgba(0, 0, 0, 0.7); /* Glow dan shadow lebih kuat */
 }
 
 .price-label {
     font-size: 1.125rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: var(--text-light);
+    color: var(--color-text-light);
 }
 .price-main {
     font-size: 3rem;
     font-weight: 800;
-    color: var(--neon-blue); /* Harga utama neon */
-    text-shadow: 0 0 10px var(--neon-blue);
+    color: var(--color-neon-accent); /* Harga utama neon */
+    text-shadow: 0 0 12px var(--color-neon-glow-strong);
     margin-bottom: 1rem;
 }
 .price-strike {
     font-size: 0.875rem;
     text-decoration: line-through;
-    color: var(--text-dim);
+    color: var(--color-text-dim);
     margin-bottom: 1rem;
 }
 .limited-offer {
     font-size: 0.875rem;
     font-weight: 600;
-    color: var(--warning-red); /* Merah untuk peringatan */
+    color: var(--color-warning-red);
     text-shadow: 0 0 3px rgba(255, 107, 107, 0.5);
     margin-bottom: 1.5rem;
 }
 
 .buy-button {
     display: inline-block;
-    background: linear-gradient(45deg, var(--neon-blue) 0%, var(--primary-highlight) 100%);
-    color: var(--darkest-bg);
+    background: linear-gradient(45deg, var(--color-neon-accent) 0%, #00BFFF 100%); /* Gradient ke warna aqua/deep sky blue */
+    color: var(--color-text-dark-on-neon);
     font-weight: 700;
     padding: 1rem 2rem;
     border-radius: 9999px;
     font-size: 1.25rem;
     transition: all 0.3s ease;
     transform: scale(1);
-    box-shadow: 0 0 15px var(--neon-blue);
+    box-shadow: 0 0 15px var(--color-neon-glow-medium);
     width: 100%;
-    border: 1px solid var(--neon-blue);
+    border: 1px solid var(--color-neon-accent);
 }
 .buy-button:hover {
-    background: linear-gradient(45deg, var(--primary-highlight) 0%, var(--neon-blue) 100%);
+    background: linear-gradient(45deg, #00BFFF 0%, var(--color-neon-accent) 100%);
     transform: scale(1.08);
-    box-shadow: 0 0 25px var(--neon-blue), 0 0 40px var(--primary-highlight);
+    box-shadow: 0 0 25px var(--color-neon-glow-strong), 0 0 40px var(--color-neon-glow-strong);
 }
 
 
 /* --- Footer --- */
 .main-footer {
-    background-color: var(--darkest-bg);
+    background-color: var(--color-bg-darkest);
     padding: 2.5rem 0;
     text-align: center;
-    color: var(--text-dim); /* Teks footer lebih redup */
-    border-top: 1px solid rgba(0, 255, 255, 0.05); /* Garis neon tipis di footer */
+    color: var(--color-text-dim);
+    border-top: 1px solid rgba(0, 224, 255, 0.05); /* Garis neon tipis di footer */
 }
 
 .footer-links {
@@ -473,28 +492,9 @@ a:hover {
     margin-top: 1rem;
 }
 .footer-links a {
-    color: var(--text-dim);
+    color: var(--color-text-dim);
     transition: color 0.2s ease;
 }
 .footer-links a:hover {
-    color: var(--neon-blue);
+    color: var(--color-neon-accent);
 }
-
-/* --- Animasi Dasar (bisa ditambahkan di sini jika tidak pakai AOS atau ingin custom) --- */
-/* Contoh animasi CSS murni: */
-/*
-@keyframes fadeInScale {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-.some-animated-element {
-    animation: fadeInScale 0.8s ease-out forwards;
-}
-*/
