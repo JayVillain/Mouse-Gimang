@@ -3,130 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dominasi Game dengan [Nama Mouse Anda] - Tailwind CSS</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>NOVA X-Pro Gaming Mouse - Dominasi Pertandingan!</title>
+    
+    <link rel="stylesheet" href="style.css"> 
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
-<body class="bg-gray-900 text-white font-poppins min-h-screen flex flex-col">
+<body>
 
-    <header class="py-4 px-6 md:px-12 flex justify-between items-center fixed top-0 left-0 w-full z-50 bg-gray-900 bg-opacity-90 backdrop-filter backdrop-blur-sm shadow-md transition-all duration-300">
-        <div class="text-2xl font-bold text-blue-500 hover:text-blue-400 transition-colors duration-200">[Nama Brand Mouse]</div>
+    <header class="main-header">
+        <div class="logo">NOVA</div>
         <nav>
-            <ul class="flex space-x-6">
-                <li><a href="#features" class="hover:text-blue-400 transition-colors duration-200 text-lg">Fitur</a></li>
-                <li><a href="#reviews" class="hover:text-blue-400 transition-colors duration-200 text-lg">Ulasan</a></li>
-                <li><a href="#buy" class="hover:text-blue-400 transition-colors duration-200 text-lg">Beli</a></li>
+            <ul class="nav-links">
+                <li><a href="#features">Fitur</a></li>
+                <li><a href="#gallery">Galeri</a></li>
+                <li><a href="#reviews">Ulasan</a></li>
+                <li><a href="#buy">Beli</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="min-h-screen flex items-center justify-center bg-cover bg-center text-center relative pt-20" style="background-image: url('https://via.placeholder.com/1920x1080/0A0A0A/FFFFFF?text=Mouse+Gaming+Background');">
-        <div class="absolute inset-0 bg-black opacity-60"></div>
-        <div class="relative z-10 p-8 max-w-4xl" data-aos="fade-up" data-aos-duration="1000">
-            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-4 text-blue-400">
-                Dominasi Pertandinganmu <br>dengan <span class="text-white">[Nama Mouse Anda]</span>!
-            </h1>
-            <p class="text-lg md:text-xl mb-8 text-gray-300">
-                Rasakan akurasi tak tertandingi, kecepatan respons kilat, dan kenyamanan ergonomis untuk setiap sesi gaming.
+    <section class="hero-section" style="background-image: url('images/hero-bg.jpg');">
+        <div class="hero-overlay"></div>
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1200" data-aos-easing="ease-out-cubic">
+            <h1>Dominasi Setiap Klik<br>dengan <span>NOVA X-Pro Gaming Mouse</span>!</h1>
+            <p data-aos="fade-up" data-aos-delay="300" data-aos-duration="1200">
+                Dirancang untuk kemenangan. Rasakan akurasi presisi, kecepatan respons kilat, dan kenyamanan tak tertandingi dalam setiap pergerakan.
             </p>
-            <a href="#buy" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
-                Dapatkan Sekarang!
+            <a href="#buy" class="cta-button" data-aos="zoom-in" data-aos-delay="600" data-aos-duration="1000">
+                Dapatkan Sekarang Juga!
             </a>
         </div>
     </section>
 
-    <section id="features" class="py-20 bg-gray-800">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl font-bold mb-12 text-blue-400" data-aos="fade-right" data-aos-duration="800">Fitur Unggulan</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <div class="bg-gray-700 p-8 rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="https://via.placeholder.com/80x80/63B3ED/FFFFFF?text=Sensor" alt="Sensor Icon" class="mx-auto mb-6 w-20 h-20">
-                    <h3 class="text-2xl font-semibold mb-4 text-blue-300">Sensor Optik Presisi Tinggi</h3>
-                    <p class="text-gray-300">Dukungan hingga 16.000 DPI untuk akurasi piksel demi piksel di setiap gerakan, memberikan bidikan sempurna.</p>
+    <section id="features" class="features-section">
+        <div class="container">
+            <h2 data-aos="fade-right" data-aos-duration="1000">Fitur Unggulan NOVA X-Pro</h2>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100" data-aos-easing="ease-out-back">
+                    <img src="images/icons/sensor-icon.png" alt="Sensor Icon" class="feature-icon">
+                    <h3>Sensor Optik Hyper-Precision</h3>
+                    <p>Hingga 20.000 DPI. Lacak setiap gerakan dengan akurasi piksel sempurna, vital untuk bidikan kritis.</p>
                 </div>
-                <div class="bg-gray-700 p-8 rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="https://via.placeholder.com/80x80/63B3ED/FFFFFF?text=Ergo" alt="Ergonomic Icon" class="mx-auto mb-6 w-20 h-20">
-                    <h3 class="text-2xl font-semibold mb-4 text-blue-300">Desain Ergonomis Nyaman</h3>
-                    <p class="text-gray-300">Dirancang khusus untuk kenyamanan jangka panjang, mengurangi kelelahan tangan selama sesi gaming maraton.</p>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200" data-aos-easing="ease-out-back">
+                    <img src="images/icons/ergonomic-icon.png" alt="Ergonomic Icon" class="feature-icon">
+                    <h3>Desain Ergonomis Adaptif</h3>
+                    <p>Genggaman nyaman untuk sesi gaming maraton. Mengurangi kelelahan dan meningkatkan kontrol.</p>
                 </div>
-                <div class="bg-gray-700 p-8 rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300" data-aos="zoom-in" data-aos-delay="300">
-                    <img src="https://via.placeholder.com/80x80/63B3ED/FFFFFF?text=RGB" alt="RGB Icon" class="mx-auto mb-6 w-20 h-20">
-                    <h3 class="text-2xl font-semibold mb-4 text-blue-300">Pencahayaan RGB Kustomisasi</h3>
-                    <p class="text-gray-300">Jutaan pilihan warna dan efek cahaya untuk menyelaraskan mouse Anda dengan setup gaming Anda.</p>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300" data-aos-easing="ease-out-back">
+                    <img src="images/icons/rgb-icon.png" alt="RGB Icon" class="feature-icon">
+                    <h3>NOVA Chroma RGB Lighting</h3>
+                    <p>16.8 juta warna kustomisasi. Selaraskan mouse dengan setup gaming Anda untuk pengalaman imersif.</p>
                 </div>
-                <div class="bg-gray-700 p-8 rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300" data-aos="zoom-in" data-aos-delay="400">
-                    <img src="https://via.placeholder.com/80x80/63B3ED/FFFFFF?text=Button" alt="Button Icon" class="mx-auto mb-6 w-20 h-20">
-                    <h3 class="text-2xl font-semibold mb-4 text-blue-300">Tombol Makro yang Dapat Diprogram</h3>
-                    <p class="text-gray-300">Sesuaikan gameplay Anda dengan hingga 8 tombol yang dapat diprogram untuk aksi cepat dan efisien.</p>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400" data-aos-easing="ease-out-back">
+                    <img src="images/icons/button-icon.png" alt="Button Icon" class="feature-icon">
+                    <h3>8 Tombol Makro Progamable</h3>
+                    <p>Sesuaikan setiap tombol untuk kombo kompleks atau aksi cepat. Unggul dalam setiap genre game.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="500" data-aos-easing="ease-out-back">
+                    <img src="images/icons/lightweight-icon.png" alt="Lightweight Icon" class="feature-icon">
+                    <h3>Desain Ultra-Ringan</h3>
+                    <p>Hanya 70 gram. Gerakan cepat dan tanpa hambatan, mengurangi inersia saat flicking.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="600" data-aos-easing="ease-out-back">
+                    <img src="images/icons/durability-icon.png" alt="Durability Icon" class="feature-icon">
+                    <h3>Daya Tahan Ekstrem</h3>
+                    <p>Switch mekanik berdaya tahan 50 juta klik. Siap hadapi intensitas kompetisi gaming.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-20 bg-gray-900">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl font-bold mb-12 text-blue-400" data-aos="fade-up" data-aos-duration="800">Tampilan Lebih Dekat</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div class="relative group" data-aos="fade-right" data-aos-duration="1000">
-                    <img src="https://via.placeholder.com/800x600/1E293B/FFFFFF?text=Mouse+Gaming+Angle+1" alt="Mouse Gaming Angle 1" class="rounded-lg shadow-xl w-full">
-                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
-                        <p class="text-white text-xl font-semibold">Desain Futuristik</p>
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <h2 data-aos="fade-down" data-aos-duration="1000">NOVA X-Pro: Sudut Pandang yang Berbeda</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-aos="fade-zoom-in" data-aos-delay="100" data-aos-easing="ease-in-sine">
+                    <img src="images/mouse-angle-1.jpg" alt="Mouse Gaming Angle 1">
+                    <div class="gallery-overlay">
+                        <p>Gaya Futuristik</p>
                     </div>
                 </div>
-                <div class="relative group" data-aos="fade-left" data-aos-duration="1000">
-                    <img src="https://via.placeholder.com/800x600/1E293B/FFFFFF?text=Mouse+Gaming+Angle+2" alt="Mouse Gaming Angle 2" class="rounded-lg shadow-xl w-full">
-                     <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
-                        <p class="text-white text-xl font-semibold">Genggaman Sempurna</p>
+                <div class="gallery-item" data-aos="fade-zoom-in" data-aos-delay="200" data-aos-easing="ease-in-sine">
+                    <img src="images/mouse-angle-2.jpg" alt="Mouse Gaming Angle 2">
+                    <div class="gallery-overlay">
+                        <p>Presisi dalam Genggaman</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="fade-zoom-in" data-aos-delay="300" data-aos-easing="ease-in-sine">
+                    <img src="https://images.unsplash.com/photo-1542398413-eb12c29c8945?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3&q=80&w=1080" alt="Mouse Gaming Angle 3">
+                    <div class="gallery-overlay">
+                        <p>RGB yang Memukau</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="reviews" class="py-20 bg-gray-800">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl font-bold mb-12 text-blue-400" data-aos="fade-up" data-aos-duration="800">Apa Kata Para Gamer?</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-gray-700 p-8 rounded-lg shadow-xl" data-aos="fade-up" data-aos-delay="100">
-                    <p class="text-gray-300 italic mb-4">"Mouse ini benar-benar mengubah cara saya bermain. Akurasi dan kenyamanannya tak tertandingi!"</p>
-                    <p class="font-semibold text-blue-300">- ProGamerX, Streamer</p>
+    <section id="reviews" class="reviews-section">
+        <div class="container">
+            <h2 data-aos="fade-left" data-aos-duration="1000">Apa Kata Para Jawara?</h2>
+            <div class="reviews-grid">
+                <div class="review-card" data-aos="flip-left" data-aos-delay="100" data-aos-easing="ease-out-cubic">
+                    <div class="star-rating">★★★★★</div>
+                    <p class="review-text">"NOVA X-Pro adalah game-changer. Responsivitasnya tak tertandingi, saya merasa lebih akurat dari sebelumnya!"</p>
+                    <p class="reviewer">- Reaper_ID, Pro Player Valorant</p>
                 </div>
-                <div class="bg-gray-700 p-8 rounded-lg shadow-xl" data-aos="fade-up" data-aos-delay="200">
-                    <p class="text-gray-300 italic mb-4">"Responnya sangat cepat, setiap klik terasa instan. Ini senjata rahasia saya sekarang!"</p>
-                    <p class="font-semibold text-blue-300">- PixelHunter, Pemain Kompetitif</p>
+                <div class="review-card" data-aos="flip-left" data-aos-delay="200" data-aos-easing="ease-out-cubic">
+                    <div class="star-rating">★★★★★</div>
+                    <p class="review-text">"Ringan, nyaman, dan tombol makro yang sangat membantu. Mouse ini adalah investasi terbaik untuk gaming."</p>
+                    <p class="reviewer">- ByteKnight, Streamer PUBG Mobile</p>
                 </div>
-                <div class="bg-gray-700 p-8 rounded-lg shadow-xl" data-aos="fade-up" data-aos-delay="300">
-                    <p class="text-gray-300 italic mb-4">"Desainnya keren dan pas di tangan. Pencahayaan RGB-nya juga bikin setup makin hidup!"</p>
-                    <p class="font-semibold text-blue-300">- GameMasterID, YouTuber</p>
+                <div class="review-card" data-aos="flip-left" data-aos-delay="300" data-aos-easing="ease-out-cubic">
+                    <div class="star-rating">★★★★★</div>
+                    <p class="review-text">"Pencahayaan RGB-nya keren banget! Mouse ini bukan cuma performa, tapi juga gaya. Sangat direkomendasikan."</p>
+                    <p class="reviewer">- EchoGaming, YouTuber Reviewer</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="buy" class="py-20 bg-blue-600 text-center">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold mb-6 text-white" data-aos="fade-up" data-aos-duration="800">Siap Dominasi Permainan?</h2>
-            <p class="text-xl mb-10 text-blue-100" data-aos="fade-up" data-aos-delay="100">Dapatkan [Nama Mouse Anda] sekarang dan rasakan perbedaan performanya!</p>
-            <div class="flex flex-col md:flex-row justify-center items-center md:space-x-8 space-y-6 md:space-y-0">
-                <div class="bg-white p-8 rounded-lg shadow-2xl text-gray-900 w-full md:w-1/3" data-aos="zoom-in" data-aos-delay="200">
-                    <p class="text-lg font-semibold mb-2">Harga Spesial:</p>
-                    <p class="text-5xl font-extrabold text-blue-600 mb-4">Rp 799.000</p>
-                    <p class="text-sm line-through text-gray-500 mb-4">Normal: Rp 999.000</p>
-                    <a href="#" class="inline-block bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-700 hover:to-blue-900 text-white font-bold py-4 px-8 rounded-full text-xl transition-all duration-300 transform hover:scale-105 shadow-lg w-full">
-                        Beli Sekarang jugaaa!
+    <section id="buy" class="buy-section">
+        <div class="container">
+            <h2 data-aos="zoom-in" data-aos-duration="1000">Siap Jadi Legenda?</h2>
+            <p class="buy-tagline" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="1000">Dapatkan NOVA X-Pro Gaming Mouse sekarang dan rasakan perbedaan performanya!</p>
+            <div class="buy-card-wrapper">
+                <div class="buy-card" data-aos="zoom-in-up" data-aos-delay="600" data-aos-duration="1000">
+                    <p class="price-label">Harga Spesial Peluncuran:</p>
+                    <p class="price-main">Rp 799.000</p>
+                    <p class="price-strike">Normal: Rp 999.000</p>
+                    <p class="limited-offer">Penawaran terbatas hingga 31 Juli 2025!</p>
+                    <a href="#" class="buy-button">
+                        Beli Sekarang!
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-gray-900 py-10 text-center text-gray-400">
-        <div class="container mx-auto px-6">
-            <p>&copy; 2025 [Nama Brand Mouse]. Semua Hak Dilindungi.</p>
-            <div class="flex justify-center space-x-6 mt-4">
-                <a href="#" class="hover:text-blue-500 transition-colors duration-200">Kebijakan Privasi</a>
-                <a href="#" class="hover:text-blue-500 transition-colors duration-200">Kontak</a>
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 NOVA Gaming. Semua Hak Dilindungi.</p>
+            <div class="footer-links">
+                <a href="#">Kebijakan Privasi</a>
+                <a href="#">Syarat & Ketentuan</a>
+                <a href="#">Hubungi Kami</a>
             </div>
         </div>
     </footer>
@@ -134,10 +157,11 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
-            duration: 1000, // Durasi animasi
-            once: true,    // Hanya animasikan sekali saat muncul
+            duration: 1000,
+            once: true,
+            easing: 'ease-out-cubic',
         });
     </script>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

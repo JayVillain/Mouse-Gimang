@@ -1,0 +1,476 @@
+/* css/style.css */
+
+/* --- Variabel CSS Global (Opsional tapi Direkomendasikan) --- */
+:root {
+    --dark-bg: #0F172A;
+    --dark-card: #1E293B;
+    --primary-blue: #3B82F6;
+    --text-white: #FFFFFF;
+    --text-gray-300: #D1D5DB;
+    --text-gray-400: #9CA3AF;
+    --text-gray-500: #6B7280;
+    --text-red: #EF4444;
+    --text-yellow: #FACC15;
+
+    --font-poppins: 'Poppins', sans-serif;
+}
+
+/* --- Reset & Base Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-poppins);
+    background-color: var(--dark-bg);
+    color: var(--text-white);
+    line-height: 1.6;
+    overflow-x: hidden; /* Mencegah scroll horizontal dari animasi */
+    scroll-behavior: smooth; /* Smooth scroll untuk anchor links */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px; /* px-6 di Tailwind */
+}
+
+h1, h2, h3 {
+    font-weight: 800; /* font-extrabold di Tailwind */
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 3.5rem; /* text-5xl di Tailwind */
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+@media (min-width: 768px) { /* md:text-7xl di Tailwind */
+    h1 {
+        font-size: 4.5rem; /* text-7xl di Tailwind */
+    }
+}
+
+h2 {
+    font-size: 2.25rem; /* text-4xl di Tailwind */
+    font-weight: 700; /* font-bold di Tailwind */
+}
+
+h3 {
+    font-size: 1.5rem; /* text-2xl di Tailwind */
+    font-weight: 600; /* font-semibold di Tailwind */
+}
+
+p {
+    font-size: 1.125rem; /* text-lg di Tailwind */
+    margin-bottom: 1rem;
+    color: var(--text-gray-300);
+}
+@media (min-width: 768px) { /* md:text-xl di Tailwind */
+    p {
+        font-size: 1.25rem; /* text-xl di Tailwind */
+    }
+}
+
+a {
+    color: var(--text-white);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+a:hover {
+    color: var(--primary-blue);
+}
+
+/* --- Header / Navbar --- */
+.main-header {
+    padding: 1rem 3rem; /* py-4 px-6 md:px-12 di Tailwind */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    background-color: rgba(15, 23, 42, 0.9); /* bg-dark-bg bg-opacity-90 */
+    backdrop-filter: blur(5px); /* backdrop-blur-sm */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
+    transition: all 0.3s ease; /* transition-all duration-300 */
+}
+
+.main-header.scrolled { /* Class yang akan ditambahkan oleh JS */
+    background-color: rgba(15, 23, 42, 0.95); /* Sedikit lebih gelap saat di-scroll */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Bayangan lebih kuat */
+}
+
+.logo {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 700; /* font-bold */
+    color: var(--primary-blue);
+    transition: color 0.2s ease; /* transition-colors duration-200 */
+}
+.logo:hover {
+    color: #4299e1; /* blue-400 */
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem; /* space-x-6 */
+}
+.nav-links a {
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 600; /* font-semibold */
+    color: var(--text-white);
+    transition: color 0.2s ease; /* transition-colors duration-200 */
+}
+.nav-links a:hover {
+    color: #4299e1; /* blue-400 */
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    position: relative;
+    padding-top: 5rem; /* pt-20 */
+    overflow: hidden; /* Memastikan overlay tidak keluar */
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0; /* top:0, right:0, bottom:0, left:0 */
+    background-color: rgba(0, 0, 0, 0.7); /* bg-black opacity-70 */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    padding: 2rem; /* p-8 */
+    max-width: 960px; /* max-w-4xl */
+}
+
+.hero-content h1 span {
+    color: var(--text-white);
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-blue); /* bg-primary-blue */
+    color: var(--text-white);
+    font-weight: 700; /* font-bold */
+    padding: 1rem 2.5rem; /* py-4 px-10 */
+    border-radius: 9999px; /* rounded-full */
+    font-size: 1.125rem; /* text-lg */
+    transition: all 0.3s ease; /* transition-all duration-300 */
+    transform: scale(1); /* transform */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
+}
+.cta-button:hover {
+    background-color: #2563EB; /* blue-700 */
+    transform: scale(1.05); /* hover:scale-105 */
+}
+
+/* --- Section Styling Umum --- */
+.features-section, .reviews-section {
+    padding: 5rem 0; /* py-20 */
+    background-color: var(--dark-card); /* bg-dark-card */
+}
+
+.gallery-section {
+    padding: 5rem 0; /* py-20 */
+    background-color: var(--dark-bg); /* bg-dark-bg */
+}
+
+.buy-section {
+    padding: 5rem 0; /* py-20 */
+    background-color: var(--primary-blue); /* bg-primary-blue */
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.25rem; /* text-4xl */
+    font-weight: 800; /* font-extrabold */
+    margin-bottom: 3rem; /* mb-12 */
+    color: var(--primary-blue);
+}
+
+/* --- Features Grid --- */
+.features-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* grid-cols-1 */
+    gap: 2.5rem; /* gap-10 */
+}
+@media (min-width: 768px) { /* md:grid-cols-2 */
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (min-width: 1024px) { /* lg:grid-cols-3 */
+    .features-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.feature-card {
+    background-color: var(--dark-bg); /* bg-gray-800 */
+    padding: 2rem; /* p-8 */
+    border-radius: 0.5rem; /* rounded-lg */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
+    transform: scale(1); /* transform */
+    transition: transform 0.3s ease; /* transition-transform duration-300 */
+}
+.feature-card:hover {
+    transform: scale(1.05); /* hover:scale-105 */
+}
+
+.feature-icon {
+    margin: 0 auto 1.5rem; /* mx-auto mb-6 */
+    width: 6rem; /* w-24 */
+    height: 6rem; /* h-24 */
+    /* Filter untuk mengubah warna ikon dari hitam ke biru (sesuai filter-invert-blue di Tailwind) */
+    filter: invert(37%) sepia(90%) saturate(1600%) hue-rotate(190deg) brightness(90%) contrast(90%);
+}
+
+.feature-card h3 {
+    color: #93C5FD; /* blue-300 */
+    margin-bottom: 1rem;
+}
+.feature-card p {
+    color: var(--text-gray-300);
+}
+
+/* --- Gallery Grid --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* grid-cols-1 */
+    gap: 2rem; /* gap-8 */
+}
+@media (min-width: 768px) { /* md:grid-cols-2 */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (min-width: 1024px) { /* lg:grid-cols-3 */
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem; /* rounded-lg */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
+}
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transform: scale(1); /* transform scale-100 */
+    transition: transform 0.5s ease; /* transition-transform duration-500 */
+}
+.gallery-item:hover img {
+    transform: scale(1.05); /* group-hover:scale-105 */
+}
+
+.gallery-overlay {
+    position: absolute;
+    inset: 0; /* top:0, right:0, bottom:0, left:0 */
+    background-color: rgba(0, 0, 0, 0.6); /* bg-black bg-opacity-60 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease; /* transition-opacity duration-300 */
+    border-radius: 0.5rem; /* rounded-lg */
+}
+.gallery-item:hover .gallery-overlay {
+    opacity: 1; /* group-hover:opacity-100 */
+}
+.gallery-overlay p {
+    color: var(--text-white);
+    font-size: 1.25rem; /* text-xl */
+    font-weight: 600; /* font-semibold */
+    margin-bottom: 0; /* Hapus margin default p */
+}
+
+/* --- Reviews Grid --- */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* grid-cols-1 */
+    gap: 2rem; /* gap-8 */
+}
+@media (min-width: 768px) { /* md:grid-cols-2 */
+    .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (min-width: 1024px) { /* lg:grid-cols-3 */
+    .reviews-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.review-card {
+    background-color: var(--dark-bg); /* bg-gray-800 */
+    padding: 2rem; /* p-8 */
+    border-radius: 0.5rem; /* rounded-lg */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
+}
+.star-rating {
+    color: var(--text-yellow);
+    font-size: 1.5rem; /* text-2xl */
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.review-text {
+    font-style: italic;
+    margin-bottom: 1rem;
+    color: var(--text-gray-300);
+}
+.reviewer {
+    font-weight: 600; /* font-semibold */
+    color: var(--primary-blue);
+    margin-bottom: 0; /* Hapus margin default p */
+}
+
+/* --- Buy Section --- */
+.buy-section h2 {
+    color: var(--text-white);
+    margin-bottom: 1.5rem; /* mb-6 */
+}
+.buy-tagline {
+    font-size: 1.25rem; /* text-xl */
+    margin-bottom: 2.5rem; /* mb-10 */
+    color: #BFDBFE; /* blue-100 */
+}
+
+.buy-card-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* flex-col */
+    gap: 1.5rem; /* space-y-6 */
+}
+@media (min-width: 768px) { /* md:flex-row md:space-x-8 */
+    .buy-card-wrapper {
+        flex-direction: row;
+        gap: 0;
+        margin-left: -1rem; /* Untuk meniru space-x */
+        margin-right: -1rem;
+    }
+    .buy-card-wrapper > * {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+}
+
+.buy-card {
+    background-color: var(--text-white); /* bg-white */
+    padding: 2rem; /* p-8 */
+    border-radius: 0.5rem; /* rounded-lg */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* shadow-2xl */
+    color: #111827; /* gray-900 */
+    width: 100%; /* w-full */
+    max-width: 400px; /* Opsional: batasi lebar pada desktop */
+    text-align: center;
+}
+@media (min-width: 768px) { /* md:w-1/3 */
+    .buy-card {
+        width: 33.333333%; /* Mendekati 1/3 */
+    }
+}
+
+.price-label {
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 600; /* font-semibold */
+    margin-bottom: 0.5rem; /* mb-2 */
+    color: inherit; /* agar warna mengikuti parent (gray-900) */
+}
+.price-main {
+    font-size: 3rem; /* text-5xl */
+    font-weight: 800; /* font-extrabold */
+    color: var(--primary-blue);
+    margin-bottom: 1rem; /* mb-4 */
+}
+.price-strike {
+    font-size: 0.875rem; /* text-sm */
+    text-decoration: line-through;
+    color: var(--text-gray-500);
+    margin-bottom: 1rem; /* mb-4 */
+}
+.limited-offer {
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 600; /* font-semibold */
+    color: var(--text-red);
+    margin-bottom: 1.5rem; /* mb-6 */
+}
+
+.buy-button {
+    display: inline-block;
+    background-image: linear-gradient(to right, #3B82F6, #2563EB); /* from-blue-500 to-blue-700 */
+    color: var(--text-white);
+    font-weight: 700; /* font-bold */
+    padding: 1rem 2rem; /* py-4 px-8 */
+    border-radius: 9999px; /* rounded-full */
+    font-size: 1.25rem; /* text-xl */
+    transition: all 0.3s ease; /* transition-all duration-300 */
+    transform: scale(1); /* transform */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+    width: 100%; /* w-full */
+}
+.buy-button:hover {
+    background-image: linear-gradient(to right, #2563EB, #1D4ED8); /* from-blue-700 to-blue-900 */
+    transform: scale(1.05); /* hover:scale-105 */
+}
+
+
+/* --- Footer --- */
+.main-footer {
+    background-color: var(--dark-bg); /* bg-dark-bg */
+    padding: 2.5rem 0; /* py-10 */
+    text-align: center;
+    color: var(--text-gray-400);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem; /* space-x-6 */
+    margin-top: 1rem; /* mt-4 */
+}
+.footer-links a {
+    color: var(--text-gray-400);
+    transition: color 0.2s ease; /* transition-colors duration-200 */
+}
+.footer-links a:hover {
+    color: var(--primary-blue); /* blue-500 */
+}
+
+/* --- Animasi Kustom CSS (Opsional, AOS sudah menangani banyak) --- */
+/* Jika Anda ingin animasi murni CSS tanpa AOS, ini contohnya */
+/*
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animated-element {
+    animation: fadeInSlideUp 1s ease-out forwards;
+}
+*/

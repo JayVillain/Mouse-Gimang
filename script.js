@@ -1,4 +1,4 @@
-// script.js
+// js/script.js
 
 // Smooth Scrolling untuk navigasi
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -17,15 +17,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Efek sederhana saat scroll untuk navbar (opsional, sudah dihandle sebagian oleh Tailwind transition)
-const header = document.querySelector('header');
+// Efek navbar saat scroll (menambah/menghapus kelas 'scrolled')
+const header = document.querySelector('.main-header'); // Pastikan selector sesuai class di HTML
 
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) { // Jika sudah scroll lebih dari 50px
-        header.classList.add('bg-opacity-90', 'shadow-lg'); // Menambah opacity dan bayangan
+        header.classList.add('scrolled'); // Tambahkan kelas 'scrolled'
     } else {
-        header.classList.remove('bg-opacity-90', 'shadow-lg'); // Menghapus opacity dan bayangan
+        header.classList.remove('scrolled'); // Hapus kelas 'scrolled'
     }
 });
 
-console.log("Landing page mouse gaming dengan Tailwind siap!");
+console.log("NOVA X-Pro Gaming Mouse Landing Page dimuat (tradisional)!");
